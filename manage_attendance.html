@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Attendance Management</title>
+    <link rel="stylesheet" href="manage_style.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Admin Attendance Management</h2>
+        <div class="navbar-right">
+            <span id="studentName">Welcome, Student</span>
+            <a href="admin_dashboard.html" class="back-btn">Back to Dashboard</a>
+            <a href="index.html" img src="student.png" alt="Logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+            
+    <div class="form-section">
+        <label for="attendance-date">Select Date:</label>
+        <input type="date" id="attendance-date">
+    
+        <label for="course-select">Select Course:</label>
+        <select id="course-select">
+            <option value="Math">Math</option>
+            <option value="Science">Science</option>
+            <option value="History">History</option>
+            <!-- Add more courses as needed -->
+        </select>
+    </div>
+    
+    <!-- Students Attendance Table -->
+    <div class="table-section">
+        <h3>Students Attendance</h3>
+        <table id="students-attendance">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1001</td>
+                    <td>John Doe</td>
+                    <td><span class="status">Present</span></td>
+                    <td>
+                        <button class="btn btn-edit" onclick="editAttendance(this)">Edit</button>
+                        <button class="btn btn-save" onclick="saveAttendance(this)" style="display:none;">Save</button>
+                    </td>
+                </tr>
+                <!-- Add more students as needed -->
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Teachers Attendance Table -->
+    <div class="table-section">
+        <h3>Teachers Attendance</h3>
+        <table id="teachers-attendance">
+            <thead>
+                <tr>
+                    <th>Teacher ID</th>
+                    <th>Teacher Name</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2001</td>
+                    <td>Jane Smith</td>
+                    <td><span class="status">Absent</span></td>
+                    <td>
+                        <button class="btn btn-edit" onclick="editAttendance(this)">Edit</button>
+                        <button class="btn btn-save" onclick="saveAttendance(this)" style="display:none;">Save</button>
+                    </td>
+                </tr>
+                <!-- Add more teachers as needed -->
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer class = "footer">
+        <p>&copy; College Management System. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |  
+            <a href="contact.html">Contact Us</a>
+        </p>
+    </footer>
+<script>
+    // Function to edit attendance
+    function editAttendance(button) {
+        const row = button.parentNode.parentNode;
+        const statusCell = row.querySelector(".status");
+        
+        // Change status text to a dropdown for editing
+        const select = document.createElement("select");
+        select.innerHTML = `
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+        `;
+        select.value = statusCell.textContent.trim();
+        statusCell.innerHTML = '';
+        statusCell.appendChild(select);
+
+        // Toggle button visibility
+        button.style.display = "none";
+        row.querySelector(".btn-save").style.display = "inline-block";
+    }
+
+    // Function to save attendance
+    function saveAttendance(button) {
+        const row = button.parentNode.parentNode;
+        const statusCell = row.querySelector(".status");
+
+        // Get the selected value and replace the dropdown with text
+        const newStatus = statusCell.querySelector("select").value;
+        statusCell.innerHTML = newStatus;
+
+        // Toggle button visibility
+        button.style.display = "none";
+        row.querySelector(".btn-edit").style.display = "inline-block";
+    }
+</script>
+
+</body>
+</html>

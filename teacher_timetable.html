@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Timetable</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Teacher Timetable</h2>
+        <div class="navbar-right">
+            <span id="teacherName">Welcome, Teacher</span>
+            <a href="teacher_dashboard.html" class="back-btn">Back to Dashboard</a>
+            <a href="index.html" img src="student.png" alt="Logout"class="logout-btn">Logout</a>
+        </div>
+    </nav>
+    <br>
+    <section class="timetable-container" style="margin: 20px;">
+        <h3>Select Semester</h3>
+        <br>
+        <select id="semesterSelect" class = "courseSelect" onchange="updateTimetable()">
+            <option value="">Select Semester</option>
+            <option value="semester1">Semester 1</option>
+            <option value="semester2">Semester 2</option>
+            <option value="semester3">Semester 3</option>
+            <option value="semester4">Semester 4</option>
+            <option value="semester5">Semester 5</option>
+            <option value="semester6">Semester 6</option>
+            <option value="semester7">Semester 7</option>
+            <option value="semester8">Semester 8</option>
+        </select>
+        <br>
+        <br>
+
+        <table id="timetable" class="timetable">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Course Code</th>
+                    <th>Course Name</th>
+                    <th>Credits</th>
+                    <th>Professor</th>
+                    <th>Room</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Timetable data will be injected here -->
+            </tbody>
+        </table>
+    </section>
+
+    <footer class = "footer">
+        <p>&copy; College Management System. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |  
+            <a href="contact.html">Contact Us</a>
+        </p>
+    </footer>
+
+    <script src="timetable_script.js"></script>
+</body>
+</html>

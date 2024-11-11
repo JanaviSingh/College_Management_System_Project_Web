@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Timetable</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Student Timetable</h2>
+        <div class="navbar-right">
+            <span id="studentName">Welcome, Student</span>
+            <a href="student_dashboard.html" class="back-btn">Back to Dashboard</a>
+            <a href="index.html" img src="student.png" alt="Logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+    <!-- Timetable Filter Section -->
+    <section class="filter-section">
+        <h3>Filter Timetable</h3>
+        <form id="timetable-filter-form">
+            <label for="semester">Semester:</label>
+            <select id="semester" class = "semesterSelect" name="semester" required>
+                <option value="">Select Semester</option>
+                <option value="semester1">Semester 1</option>
+                <option value="semester2">Semester 2</option>
+                <option value="semester3">Semester 3</option>
+                <option value="semester1">Semester 4</option>
+                <option value="semester2">Semester 5</option>
+                <option value="semester3">Semester 6</option>
+                <option value="semester1">Semester 7</option>
+                <option value="semester2">Semester 8</option>
+            </select>
+            <button type="button" class ="update-btn" onclick="loadTimetable()">View Timetable</button>
+        </form>
+    </section>
+    <!-- Timetable Display Section -->
+    <section class="display">
+        <h3>Timetable</h3>
+        <br>
+        <div id="timetable-record">
+            <!-- Dynamic timetable content will be loaded here -->
+        </div>
+    </section>
+    
+    <footer class = "footer">
+        <p>&copy; College Management System. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |  
+            <a href="contact.html">Contact Us</a>
+        </p>
+    </footer>
+
+    <script src="view_timetable_script.js"></script>
+</body>
+</html>

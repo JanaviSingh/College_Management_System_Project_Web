@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Course Management</title>
+    <link rel="stylesheet" href="manage_style.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Admin Course Management </h2>
+        <div class="navbar-right">
+            <span id="studentName">Welcome, Student</span>
+            <a href="admin_dashboard.html" class="back-btn">Back to Dashboard</a>
+            <a href="index.html" img src="student.png" alt="Logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+    
+<div class="form-section">
+    <label for="student-select">Select Student:</label>
+    <select id="student-select">
+        <option value="1">John Doe</option>
+        <option value="2">Jane Smith</option>
+        <option value="3">Mark Johnson</option>
+        <!-- Add more students as needed -->
+    </select>
+
+    <label for="course-name">Course Name:</label>
+    <input type="text" id="course-name" placeholder="Enter course name">
+
+    <label for="course-description">Course Description:</label>
+    <textarea id="course-description" placeholder="Enter course description"></textarea>
+
+    <label for="course-credits">Course Credits:</label>
+    <input type="number" id="course-credits" placeholder="Enter course credits">
+
+    <label for="teacher-select">Assign Teacher:</label>
+    <select id="teacher-select">
+        <option value="1">Prof. John</option>
+        <option value="2">Prof. Sarah</option>
+        <option value="3">Prof. Alex</option>
+        <!-- Add more teachers as needed -->
+    </select>
+
+    <button class="btn" onclick="addCourseToStudent()">Assign Course to Student</button>
+</div>
+
+<!-- Course Table -->
+<div class="course-table">
+    <h3>Assigned Courses</h3>
+    <table id="course-details">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Course Name</th>
+                <th>Course Description</th>
+                <th>Course Credits</th>
+                <th>Assigned Teacher</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td><span class="course-name">Mathematics</span></td>
+                <td><span class="course-description">Basic mathematics course</span></td>
+                <td><span class="course-credits">3</span></td>
+                <td><span class="assigned-teacher">Prof. John</span></td>
+                <td>
+                    <button class="btn btn-edit" onclick="editCourseDetails(this)">Edit</button>
+                    <button class="btn btn-save" onclick="saveCourseDetails(this)" style="display:none;">Save</button>
+                </td>
+            </tr>
+            <!-- Add more student-course assignments -->
+        </tbody>
+    </table>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer class = "footer">
+    <p>&copy; College Management System. All rights reserved.</p>
+    <p>
+        <a href="privacy.html">Privacy Policy</a> |  
+        <a href="contact.html">Contact Us</a>
+    </p>
+</footer>
+
+
+<script>
+    // Function to assign course to the selected student
+    function addCourseToStudent() {
+        const studentName = document.getElementById('student-select').selectedOptions[0].text;
+        const courseName = document.getElementById('course-name').value;
+        const courseDescription = document.getElementById('course-description').value;
+        const courseCredits = document.getElementById('course-credits').value;
+        const teacherName = document.getElementById('teacher-select').selectedOptions[0].text;
+
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${studentName}</td>
+            <td><span class="course-name">${courseName}</span></td>
+            <td><span class="course-description">${courseDescription}</span></td>
+            <td><span class="course-credits">${courseCredits}</span></td>
+            <td><span class="assigned-teacher">${teacherName}</span></td>
+            <td>
+                <button class="btn btn-edit" onclick="editCourseDetails(this)">Edit</button>
+                <button class="btn btn-save" onclick="saveCourseDetails(this)" style="display:none;">Save</button>
+            </td>
+        `;
+        document.querySelector('#course-details tbody').appendChild(newRow);
+    }
+
+    // Function to edit course details
+    function editCourseDetails(button) {
+        const row = button.parentNode.parentNode;
+        const courseNameCell = row.querySelector(".course-name");
+        const courseDescriptionCell = row.querySelector(".course-description");
+        const courseCreditsCell = row.querySelector(".course-credits");
+        const assignedTeacherCell = row.querySelector(".assigned-teacher");
+
+        // Convert cells to input fields
+        const courseNameInput = document.createElement("input");
+        courseNameInput.type = "text";
+        courseNameInput.value = courseNameCell.textContent.trim();
+        courseNameCell.innerHTML = '';
+        courseNameCell.appendChild(courseNameInput);
+
+        const courseDescriptionInput = document.createElement("textarea");
+        courseDescriptionInput.value = courseDescriptionCell.textContent.trim();
+        courseDescriptionCell.innerHTML = '';
+        courseDescriptionCell.appendChild(courseDescriptionInput);
+
+        const courseCreditsInput = document.createElement("input");
+        courseCreditsInput.type = "number";
+        courseCreditsInput.value = courseCreditsCell.textContent.trim();
+        courseCreditsCell.innerHTML = '';
+        courseCreditsCell.appendChild(courseCreditsInput);
+
+        const teacherSelect = document.createElement("select");
+        teacherSelect.innerHTML = `
+            <option value="1" ${assignedTeacherCell.textContent.trim() === 'Prof. John' ? 'selected' : ''}>Prof. John</option>
+            <option value="2" ${assignedTeacherCell.textContent.trim() === 'Prof. Sarah' ? 'selected' : ''}>Prof. Sarah</option>
+            <option value="3" ${assignedTeacherCell.textContent.trim() === 'Prof. Alex' ? 'selected' : ''}>Prof. Alex</option>
+        `;
+        assignedTeacherCell.innerHTML = '';
+        assignedTeacherCell.appendChild(teacherSelect);
+
+        // Toggle button visibility
+        button.style.display = "none";
+        row.querySelector(".btn-save").style.display = "inline-block";
+    }
+
+    // Function to save edited course details
+    function saveCourseDetails(button) {
+        const row = button.parentNode.parentNode;
+        const courseNameCell = row.querySelector(".course-name");
+        const courseDescriptionCell = row.querySelector(".course-description");
+        const courseCreditsCell = row.querySelector(".course-credits");
+        const assignedTeacherCell = row.querySelector(".assigned-teacher");
+
+        // Save input values and replace input fields with text
+        const newCourseName = courseNameCell.querySelector("input").value;
+        const newCourseDescription = courseDescriptionCell.querySelector("textarea").value;
+        const newCourseCredits = courseCreditsCell.querySelector("input").value;
+        const newAssignedTeacher = assignedTeacherCell.querySelector("select").selectedOptions[0].text;
+
+        courseNameCell.innerHTML = newCourseName;
+        courseDescriptionCell.innerHTML = newCourseDescription;
+        courseCreditsCell.innerHTML = newCourseCredits;
+        assignedTeacherCell.innerHTML = newAssignedTeacher;
+
+        // Toggle button visibility
+        button.style.display = "none";
+        row.querySelector(".btn-edit").style.display = "inline-block";
+    }
+</script>
+
+</body>
+</html>

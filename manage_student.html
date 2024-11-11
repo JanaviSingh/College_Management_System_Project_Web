@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Student Management</title>
+    <link rel="stylesheet" href="manage_style.css">
+    <link rel="icon" type="image/png" href="College.png">
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Admin Student Details </h2>
+        <div class="navbar-right">
+            <span id="studentName">Welcome, Student</span>
+            <a href="admin_dashboard.html" class="back-btn">Back to Dashboard</a>
+            <a href="index.html" img src="student.png" alt="Logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+
+<!-- Student Profile Form -->
+<div class="form-section">
+    <h3>Student Details</h3>
+    <label for="student-select">Select Student:</label>
+    <select id="student-select">
+        <option value="1">John Doe</option>
+        <option value="2">Jane Smith</option>
+        <option value="3">Mark Johnson</option>
+        <!-- Add more students as needed -->
+    </select>
+
+    <label for="student-name">Full Name:</label>
+    <input type="text" id="student-name" placeholder="Enter full name">
+
+    <label for="student-dob">Date of Birth:</label>
+    <input type="date" id="student-dob">
+
+    <label for="student-address">Address:</label>
+    <textarea id="student-address" placeholder="Enter address"></textarea>
+
+    <label for="student-phone">Phone Number:</label>
+    <input type="text" id="student-phone" placeholder="Enter phone number">
+
+    <label for="student-email">Email Address:</label>
+    <input type="text" id="student-email" placeholder="Enter email">
+
+    <label for="student-gender">Gender:</label>
+    <select id="student-gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+    </select>
+</div>
+
+<!-- Parent Information Form -->
+<div class="form-section">
+    <h3>Parent Information</h3>
+    <label for="parent-name">Parent Name:</label>
+    <input type="text" id="parent-name" placeholder="Enter parent name">
+
+    <label for="parent-phone">Parent Phone Number:</label>
+    <input type="text" id="parent-phone" placeholder="Enter parent phone number">
+
+    <label for="parent-email">Parent Email Address:</label>
+    <input type="text" id="parent-email" placeholder="Enter parent email">
+
+    <label for="parent-address">Parent Address:</label>
+    <textarea id="parent-address" placeholder="Enter parent address"></textarea>
+</div>
+
+<!-- Education History Form -->
+<div class="form-section">
+    <h3>Education History</h3>
+    <label for="previous-school">Previous School/College:</label>
+    <input type="text" id="previous-school" placeholder="Enter previous school name">
+
+    <label for="previous-grade">Previous Grade/Level:</label>
+    <input type="text" id="previous-grade" placeholder="Enter previous grade or level">
+
+    <label for="course-name">Course Enrolled:</label>
+    <input type="text" id="course-name" placeholder="Enter course name">
+
+    <label for="enrollment-year">Year of Enrollment:</label>
+    <input type="number" id="enrollment-year" placeholder="Enter year of enrollment">
+</div>
+
+<!-- Save and Edit Buttons -->
+<button class="btn btn-edit" onclick="editStudentDetails()">Edit</button>
+<button class="btn btn-save" onclick="saveStudentDetails()">Save</button>
+
+<!-- Student Table to View Details -->
+<div class="student-table">
+    <h3>Student Information Overview</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Parent Name</th>
+                <th>Previous School</th>
+                <th>Course Enrolled</th>
+                <th>Medical Conditions</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>Jane Doe</td>
+                <td>XYZ School</td>
+                <td>Engineering</td>
+                <td>None</td>
+                <td>
+                    <button class="btn btn-edit" onclick="viewStudentProfile()">View</button>
+                </td>
+            </tr>
+            <!-- Add more student records as needed -->
+        </tbody>
+    </table>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer class = "footer">
+    <p>&copy; College Management System. All rights reserved.</p>
+    <p>
+        <a href="privacy.html">Privacy Policy</a> |  
+        <a href="contact.html">Contact Us</a>
+    </p>
+</footer>
+
+<script>
+    // Function to enable editing of student details
+    function editStudentDetails() {
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.disabled = false;
+        });
+        document.querySelector('.btn-save').style.display = 'inline-block';
+        document.querySelector('.btn-edit').style.display = 'none';
+    }
+
+    // Function to save edited student details
+    function saveStudentDetails() {
+        // Save logic here, for example sending data to backend via API
+
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.disabled = true;
+        });
+        document.querySelector('.btn-save').style.display = 'none';
+        document.querySelector('.btn-edit').style.display = 'inline-block';
+
+        alert('Student details saved successfully!');
+    }
+
+    // Function to view student profile details
+    function viewStudentProfile() {
+        // Logic to view the student's profile (displaying all details in the form)
+        const studentName = "John Doe"; // This will be dynamic based on selection
+        const parentName = "Jane Doe";  // Example parent data
+        const previousSchool = "XYZ School"; // Example education data
+        const courseEnrolled = "Engineering"; // Example course data
+        const medicalConditions = "None"; // Example medical data
+
+        alert(`Student: ${studentName}\nParent: ${parentName}\nSchool: ${previousSchool}\nCourse: ${courseEnrolled}\nMedical: ${medicalConditions}`);
+    }
+</script>
+
+</body>
+</html>

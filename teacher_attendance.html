@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Attendance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Mark Attendance</h2>
+        <div class="navbar-right">
+            <a href="teacher_dashboard.html" class="back-btn">Back to Dashboard</a>
+            <a href="index.html" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Attendance Form Section -->
+    <section class="attendance-section">
+        <h3>Select Semester and Date</h3>
+        <form id="attendance-form">
+            <label for="class">Semester:</label>
+            <select id="class" class = "semesterSelect" name="class" required>
+                <option value="">Select Semester</option>
+                <option value="class1">Class 1</option>
+                <option value="class2">Class 2</option>
+                <option value="class3">Class 3</option>
+            </select>
+            <label for="date">Date:</label>
+            <input class = "input" type="date" id="date" name="date" required>  
+        </form>
+        <button type="button"  class= "update-btn" onclick="loadStudentList()">Load Students</button>
+    </section>
+
+    <!-- Student Attendance List -->
+    <section class="student-list-section">
+        <h3>Mark Attendance</h3>
+        <div id="student-list" class="student-list">
+            <!-- Dynamic content to be loaded here -->
+        </div>
+        <button type="button" class = "update-btn" onclick="submitAttendance()">Submit Attendance</button>
+    </section>
+
+    <!-- Attendance History Section -->
+    <section class="attendance-history-section">
+        <h3>Attendance History</h3>
+        <label for="history-class">Class:</label>
+        <select id="history-class" class = "semesterSelect" name="history-class" onchange="loadAttendanceHistory()">
+            <option value="">Select Class</option>
+            <option value="class1">Class 1</option>
+            <option value="class2">Class 2</option>
+            <option value="class3">Class 3</option>
+        </select>
+        <label for="history-date">Date:</label>
+        <input type="date" id="history-date" name="history-date" onchange="loadAttendanceHistory()">
+        
+        <div id="attendance-history" class="attendance-history">
+            <!-- Dynamic history content to be loaded here -->
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer class = "footer">
+        <p>&copy; College Management System. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> 
+            <a href="contact.html">Contact Us</a>
+        </p>
+    </footer>
+
+    <script src= "attendance_script.js"></script>
+</body>
+</html>

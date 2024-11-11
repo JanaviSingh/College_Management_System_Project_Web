@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Teacher Management</title>
+    <link rel="stylesheet" href="manage_style.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+        <!-- Navbar -->
+        <nav class="navbar">
+            <h2>Admin Teacher Details </h2>
+            <div class="navbar-right">
+                <span id="studentName">Welcome, Student</span>
+                <a href="admin_dashboard.html" class="back-btn">Back to Dashboard</a>
+                <a href="index.html" img src="student.png" alt="Logout" class="logout-btn">Logout</a>
+            </div>
+        </nav>
+
+
+
+<!-- Teacher Profile Form -->
+<div class="form-section">
+    <h3>Teacher Details</h3>
+    <label for="teacher-select">Select Teacher:</label>
+    <select id="teacher-select">
+        <option value="1">Prof. John</option>
+        <option value="2">Prof. Sarah</option>
+        <option value="3">Prof. Alex</option>
+        <!-- Add more teachers as needed -->
+    </select>
+
+    <label for="teacher-name">Full Name:</label>
+    <input type="text" id="teacher-name" placeholder="Enter full name">
+
+    <label for="teacher-dob">Date of Birth:</label>
+    <input type="date" id="teacher-dob">
+
+    <label for="teacher-address">Address:</label>
+    <textarea id="teacher-address" placeholder="Enter address"></textarea>
+
+    <label for="teacher-phone">Phone Number:</label>
+    <input type="text" id="teacher-phone" placeholder="Enter phone number">
+
+    <label for="teacher-email">Email Address:</label>
+    <input type="text" id="teacher-email" placeholder="Enter email">
+
+    <label for="teacher-gender">Gender:</label>
+    <select id="teacher-gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+    </select>
+</div>
+
+<!-- Work Experience Form -->
+<div class="form-section">
+    <h3>Work Experience</h3>
+    <label for="work-experience">Work Experience:</label>
+    <textarea id="work-experience" placeholder="Enter work experience details"></textarea>
+
+    <label for="current-role">Current Role:</label>
+    <input type="text" id="current-role" placeholder="Enter current role">
+</div>
+
+<!-- Achievements Form -->
+<div class="form-section">
+    <h3>Achievements</h3>
+    <label for="achievements">Achievements:</label>
+    <textarea id="achievements" placeholder="Enter achievements"></textarea>
+</div>
+
+<!-- Education History Form -->
+<div class="form-section">
+    <h3>Education History</h3>
+    <label for="previous-school">Previous School/College:</label>
+    <input type="text" id="previous-school" placeholder="Enter previous school or college name">
+
+    <label for="previous-degree">Previous Degree:</label>
+    <input type="text" id="previous-degree" placeholder="Enter previous degree or qualification">
+
+    <label for="graduation-year">Year of Graduation:</label>
+    <input type="number" id="graduation-year" placeholder="Enter year of graduation">
+</div>
+
+<!-- Medical Records Form -->
+<div class="form-section">
+    <h3>Medical Records</h3>
+    <label for="medical-conditions">Known Medical Conditions:</label>
+    <textarea id="medical-conditions" placeholder="Enter any known medical conditions"></textarea>
+
+    <label for="medications">Current Medications:</label>
+    <textarea id="medications" placeholder="Enter any current medications"></textarea>
+
+    <label for="medical-history">Medical History:</label>
+    <textarea id="medical-history" placeholder="Enter medical history"></textarea>
+</div>
+
+<!-- Save and Edit Buttons -->
+<button class="btn btn-edit" onclick="editTeacherDetails()">Edit</button>
+<button class="btn btn-save" onclick="saveTeacherDetails()">Save</button>
+
+<!-- Teacher Table to View Details -->
+<div class="teacher-table">
+    <h3>Teacher Information Overview</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Teacher Name</th>
+                <th>Current Role</th>
+                <th>Achievements</th>
+                <th>Previous Degree</th>
+                <th>Medical Conditions</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Prof. John</td>
+                <td>Engineering Professor</td>
+                <td>Best Teaching Award</td>
+                <td>PhD in Engineering</td>
+                <td>None</td>
+                <td>
+                    <button class="btn btn-edit" onclick="viewTeacherProfile()">View</button>
+                </td>
+            </tr>
+            <!-- Add more teacher records as needed -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // Function to enable editing of teacher details
+    function editTeacherDetails() {
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.disabled = false;
+        });
+        document.querySelector('.btn-save').style.display = 'inline-block';
+        document.querySelector('.btn-edit').style.display = 'none';
+    }
+
+    // Function to save edited teacher details
+    function saveTeacherDetails() {
+        // Save logic here, for example sending data to backend via API
+
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.disabled = true;
+        });
+        document.querySelector('.btn-save').style.display = 'none';
+        document.querySelector('.btn-edit').style.display = 'inline-block';
+
+        alert('Teacher details saved successfully!');
+    }
+
+    // Function to view teacher profile details
+    function viewTeacherProfile() {
+        // Logic to view the teacher's profile (displaying all details in the form)
+        const teacherName = "Prof. John"; // This will be dynamic based on selection
+        const currentRole = "Engineering Professor"; // Example role data
+        const achievements = "Best Teaching Award"; // Example achievements data
+        const previousDegree = "PhD in Engineering"; // Example degree data
+        const medicalConditions = "None"; // Example medical data
+
+        alert(`Teacher: ${teacherName}\nRole: ${currentRole}\nAchievements: ${achievements}\nDegree: ${previousDegree}\nMedical: ${medicalConditions}`);
+    }
+</script>
+
+</body>
+</html>

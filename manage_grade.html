@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Grade Management</title>
+    <link rel="stylesheet" href="manage_style.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Admin Grade Management </h2>
+        <div class="navbar-right">
+            <span id="studentName">Welcome, Student</span>
+            <a href="admin_dashboard.html" class="back-btn">Back to Dashboard</a>
+            <a href="index.html" img src="student.png" alt="Logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+<div class="form-section">
+    <label for="grade-date">Select Date:</label>
+    <input type="date" id="grade-date">
+
+    <label for="course-select">Select Course:</label>
+    <select id="course-select">
+        <option value="Math">Math</option>
+        <option value="Science">Science</option>
+        <option value="History">History</option>
+        <!-- Add more courses as needed -->
+    </select>
+</div>
+
+<!-- Student Grades Table -->
+<div class="grade-table">
+    <h3>Student Grades</h3>
+    <table id="student-grades">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Grade</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1001</td>
+                <td>John Doe</td>
+                <td><span class="grade">B</span></td>
+                <td>
+                    <button class="btn btn-edit" onclick="editGrade(this)">Edit</button>
+                    <button class="btn btn-save" onclick="saveGrade(this)" style="display:none;">Save</button>
+                </td>
+            </tr>
+            <tr>
+                <td>1002</td>
+                <td>Jane Smith</td>
+                <td><span class="grade">A</span></td>
+                <td>
+                    <button class="btn btn-edit" onclick="editGrade(this)">Edit</button>
+                    <button class="btn btn-save" onclick="saveGrade(this)" style="display:none;">Save</button>
+                </td>
+            </tr>
+            <!-- Add more students as needed -->
+        </tbody>
+    </table>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer class = "footer">
+    <p>&copy; College Management System. All rights reserved.</p>
+    <p>
+        <a href="privacy.html">Privacy Policy</a> |  
+        <a href="contact.html">Contact Us</a>
+    </p>
+</footer>
+
+
+<script>
+    // Function to edit grade
+    function editGrade(button) {
+        const row = button.parentNode.parentNode;
+        const gradeCell = row.querySelector(".grade");
+
+        // Convert grade cell to an input field for editing
+        const gradeInput = document.createElement("input");
+        gradeInput.type = "text";
+        gradeInput.value = gradeCell.textContent.trim();
+        gradeCell.innerHTML = '';
+        gradeCell.appendChild(gradeInput);
+
+        // Toggle button visibility
+        button.style.display = "none";
+        row.querySelector(".btn-save").style.display = "inline-block";
+    }
+
+    // Function to save grade
+    function saveGrade(button) {
+        const row = button.parentNode.parentNode;
+        const gradeCell = row.querySelector(".grade");
+
+        // Save input value and replace input field with text
+        const newGrade = gradeCell.querySelector("input").value;
+        gradeCell.innerHTML = newGrade;
+
+        // Toggle button visibility
+        button.style.display = "none";
+        row.querySelector(".btn-edit").style.display = "inline-block";
+    }
+</script>
+
+</body>
+</html>

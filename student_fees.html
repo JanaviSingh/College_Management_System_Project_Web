@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+    <nav class="navbar">
+        <h2>Fees Management</h2>
+        <div class="navbar-right">
+            <span id="studentName">Welcome, Student</span>
+            <a href="student_dashboard.html" class="back-btn">Back to Dashboard</a>
+            <a href="index.html" img src="student.png" alt="Logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+
+    <section class="payment-section">
+        <h3>Pay Fees</h3>
+        <form id="feePaymentForm">
+            <label for="amount">Amount:</label>
+            <input type="number" class = "input" id="amount" placeholder="Enter amount" required>
+            <button type="submit" class="update-btn">Pay Now</button>
+        </form>
+    </section>
+
+    <section class="receipt-section">
+        <h3>Download Receipt</h3>
+        <form id="downloadReceiptForm">
+            <label for="receiptId">Receipt ID:</label>
+            <input type="text" class = "input" id="receiptId" placeholder="Enter receipt ID" required>
+            <button type="submit" class="update-btn">Download Receipt</button>
+        </form>
+    </section>
+
+    <section class="history-section">
+        <h3>Payment History</h3>
+        <table id="paymentHistoryTable">
+            <br>
+            <thead>
+                <tr>
+                    <th> Receipt ID </th>
+                    <th>  Amount    </th>
+                    <th>    Date   </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Payment history will be populated here -->
+            </tbody>
+        </table>
+    </section>
+
+    <footer class = "footer">
+        <p>&copy; College Management System. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |  
+            <a href="contact.html">Contact Us</a>
+        </p>
+    </footer>
+
+    <script src="fees_management_script.js"></script>
+</body>
+</html>

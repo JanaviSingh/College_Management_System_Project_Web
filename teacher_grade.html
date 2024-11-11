@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Grades</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+    <nav class="navbar">
+        <h2>Update Student Grades</h2>
+        <div class="navbar-right">
+            <span id="teacherName" >Welcome, Teacher</span>
+            <a href="teacher_dashboard.html" class="back-btn">Back to Dashboard</a>
+            <a href="index.html" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+
+    <section class="grades-container">
+        <h3>Select Course</h3>
+        <select id="courseSelect" class ="courseSelect" onchange="loadStudents()">
+            <option value="CS101">Data Structures</option>
+            <option value="CS102">Algorithms</option>
+            <option value="CS103">Software Engineering</option>
+            <option value="CS104">Database Management Systems</option>
+            <option value="CS105">Computer Networks</option>
+            <option value="CS106">Operating Systems</option>
+        </select>
+
+        <h3>Students List</h3>
+        <table id="studentsTable" class="students-table">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Current Grade</th>
+                    <th>New Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Student data will be injected here -->
+            </tbody>
+        </table>
+
+        <button class="update-btn" onclick="updateGrades()">Update Grades</button>
+    </section>
+
+    <footer class = "footer">
+        <p>&copy; College Management System. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |  
+            <a href="contact.html">Contact Us</a>
+        </p>
+    </footer>
+
+    <script src="update_grades_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Fee Management</title>
+    <link rel="stylesheet" href="manage_style.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Admin Fee Details </h2>
+        <div class="navbar-right">
+            <span id="studentName">Welcome, Student</span>
+            <a href="admin_dashboard.html" class="back-btn">Back to Dashboard</a>
+            <a href="index.html" img src="student.png" alt="Logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+
+<div class="form-section">
+    <label for="student-select">Select Student:</label>
+    <select id="student-select">
+        <option value="1">John Doe</option>
+        <option value="2">Jane Smith</option>
+        <option value="3">Mark Johnson</option>
+        <!-- Add more students as needed -->
+    </select>
+
+    <label for="fee-amount">Fee Amount:</label>
+    <input type="number" id="fee-amount" placeholder="Enter fee amount">
+
+    <label for="due-date">Due Date:</label>
+    <input type="date" id="due-date">
+
+    <label for="paid-amount">Amount Paid:</label>
+    <input type="number" id="paid-amount" placeholder="Enter amount paid">
+
+    <label for="fine">Fine (if overdue):</label>
+    <input type="number" id="fine" placeholder="Enter fine amount">
+
+    <button class="btn" onclick="calculateFees()">Calculate Fees</button>
+</div>
+
+<!-- Fee Table -->
+<div class="table-section">
+    <h3>Fee Details</h3>
+    <table id="fee-details">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Fee Amount</th>
+                <th>Amount Paid</th>
+                <th>Due Date</th>
+                <th>Fine</th>
+                <th>Total Amount Due</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td><span class="fee-amount">1000</span></td>
+                <td><span class="amount-paid">800</span></td>
+                <td><span class="due-date">2024-10-10</span></td>
+                <td><span class="fine">0</span></td>
+                <td><span class="total-due">200</span></td>
+                <td>
+                    <button class="btn btn-edit" onclick="editFeeDetails(this)">Edit</button>
+                    <button class="btn btn-save" onclick="saveFeeDetails(this)" style="display:none;">Save</button>
+                    <button class="btn btn-save" onclick="generateReceipt(this)">Generate Receipt</button>
+                </td>
+            </tr>
+            <!-- Add more students' fee details -->
+        </tbody>
+    </table>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer class = "footer">
+    <p>&copy; College Management System. All rights reserved.</p>
+    <p>
+        <a href="privacy.html">Privacy Policy</a> |  
+        <a href="contact.html">Contact Us</a>
+    </p>
+</footer>
+
+
+<script>
+    // Calculate overdue fees and fine
+    function calculateFees() {
+        const feeAmount = parseFloat(document.getElementById('fee-amount').value);
+        const paidAmount = parseFloat(document.getElementById('paid-amount').value);
+        const dueDate = new Date(document.getElementById('due-date').value);
+        const currentDate = new Date();
+        let fine = 0;
+
+        // Calculate fine if overdue
+        if (currentDate > dueDate) {
+            fine = 100; // Example fine for overdue
+        }
+
+        const totalDue = feeAmount - paidAmount + fine;
+
+        document.getElementById('fine').value = fine;
+        alert(`Total Amount Due (including fine): ${totalDue}`);
+    }
+
+    // Function to edit fee details
+    function editFeeDetails(button) {
+        const row = button.parentNode.parentNode;
+        const feeAmountCell = row.querySelector(".fee-amount");
+        const paidAmountCell = row.querySelector(".amount-paid");
+        const dueDateCell = row.querySelector(".due-date");
+        const fineCell = row.querySelector(".fine");
+        const totalDueCell = row.querySelector(".total-due");
+
+        // Convert cells to input fields
+        const feeAmountInput = document.createElement("input");
+        feeAmountInput.type = "number";
+        feeAmountInput.value = feeAmountCell.textContent.trim();
+        feeAmountCell.innerHTML = '';
+        feeAmountCell.appendChild(feeAmountInput);
+
+        const paidAmountInput = document.createElement("input");
+        paidAmountInput.type = "number";
+        paidAmountInput.value = paidAmountCell.textContent.trim();
+        paidAmountCell.innerHTML = '';
+        paidAmountCell.appendChild(paidAmountInput);
+
+        const dueDateInput = document.createElement("input");
+        dueDateInput.type = "date";
+        dueDateInput.value = dueDateCell.textContent.trim();
+        dueDateCell.innerHTML = '';
+        dueDateCell.appendChild(dueDateInput);
+
+        const fineInput = document.createElement("input");
+        fineInput.type = "number";
+        fineInput.value = fineCell.textContent.trim();
+        fineCell.innerHTML = '';
+        fineCell.appendChild(fineInput);
+
+        // Toggle button visibility
+        button.style.display = "none";
+        row.querySelector(".btn-save").style.display = "inline-block";
+    }
+
+    // Function to save fee details
+    function saveFeeDetails(button) {
+        const row = button.parentNode.parentNode;
+        const feeAmountCell = row.querySelector(".fee-amount");
+        const paidAmountCell = row.querySelector(".amount-paid");
+        const dueDateCell = row.querySelector(".due-date");
+        const fineCell = row.querySelector(".fine");
+        const totalDueCell = row.querySelector(".total-due");
+
+        // Save input values and replace input fields with text
+        const newFeeAmount = feeAmountCell.querySelector("input").value;
+        const newPaidAmount = paidAmountCell.querySelector("input").value;
+        const newDueDate = dueDateCell.querySelector("input").value;
+        const newFine = fineCell.querySelector("input").value;
+        const newTotalDue = parseFloat(newFeeAmount) - parseFloat(newPaidAmount) + parseFloat(newFine);
+
+        feeAmountCell.innerHTML = newFeeAmount;
+        paidAmountCell.innerHTML = newPaidAmount;
+        dueDateCell.innerHTML = newDueDate;
+        fineCell.innerHTML = newFine;
+        totalDueCell.innerHTML = newTotalDue;
+
+        // Toggle button visibility
+        button.style.display = "none";
+        row.querySelector(".btn-edit").style.display = "inline-block";
+    }
+
+    // Function to generate fee receipt
+    function generateReceipt(button) {
+        const row = button.parentNode.parentNode;
+        const studentName = row.querySelector("td").textContent;
+        const feeAmount = row.querySelector(".fee-amount").textContent;
+        const paidAmount = row.querySelector(".amount-paid").textContent;
+        const fine = row.querySelector(".fine").textContent;
+        const totalDue = row.querySelector(".total-due").textContent;
+
+        const receipt = `
+            Fee Receipt:
+            Student: ${studentName}
+            Fee Amount: ${feeAmount}
+            Amount Paid: ${paidAmount}
+            Fine: ${fine}
+            Total Due: ${totalDue}
+        `;
+        alert(receipt);
+    }
+</script>
+
+</body>
+</html>
