@@ -1,0 +1,109 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #051622;
+    color: #fff;
+    padding: 1rem;
+}
+
+.navbar h2 {
+    margin: 0;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+
+#adminName {
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+.logout-btn {
+    color: #fff;
+    text-decoration: none;
+    float: right;
+    background-color:#1ba098;
+    font-weight: bold;
+    border:none;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+/* Dashboard Card */
+.card {
+    background-color: #1ba098;
+    color: white;
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #cda87e;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #051622;
+}
+
+.card-btn {
+    background-color: #051622;
+    color:#fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.card-btn:hover {
+    background-color: #1ba098;
+   
+}
+
+.footer {
+    background-color:#051622;
+    color: white;
+    text-align: center;
+    padding: 1px 1px; 
+    flex: 1; 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer a {
+    color:#cda87e;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}

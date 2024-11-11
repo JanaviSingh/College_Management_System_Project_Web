@@ -1,0 +1,159 @@
+/* Navbar styling */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #051622;
+    color: #fff;
+    padding: 1px;
+    margin: 1px;
+    border: 1px;
+    margin-top: 0%;
+}
+.navbar-right {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 14px;
+    padding-left: 12px;
+    justify-content: space-between;
+}
+
+.navbar h2 {
+    margin-left: 20px;
+    color:#fff;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    color: #deb992;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+
+#studentName {
+    margin-right: 1rem;
+    font-weight: bold;
+}
+#teacherName {
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+.logout-btn {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.student-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+}
+
+/* Student Info section */
+.student-info {
+    padding: 1rem;
+    background-color: #deb992;
+    margin: 1rem;
+    border-radius: 8px;
+}
+
+.student-info h3 {
+    margin-top: 0;
+}
+
+.teacher-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+}
+
+/* teacher Info section */
+.teacher-info {
+    padding: 1rem;
+    background-color: #deb992;
+    margin: 1rem;
+    border-radius: 8px;
+}
+
+.teacher-info h3 {
+    margin-top: 0;
+}
+
+/* Dashboard Cards */
+.dashboard-cards {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #1ba098;
+    padding: 1rem;
+    width: 150px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin: 1rem;
+    color: #051622;
+
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color:#deb992;
+}
+
+.card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5rem;
+}
+
+/* Display Area for Information */
+.info-display {
+    background-color: #deb992;
+    padding: 1rem;
+    margin: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.info-display h3 {
+    margin-top: 0;
+}
+.footer {
+    background-color:#051622;
+    color: white;
+    text-align: center;
+    padding: 1px 1px; 
+    flex: 1; 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer a {
+    color:#cda87e;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
