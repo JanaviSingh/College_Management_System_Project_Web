@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin_dashboard_styles.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+    <nav class="navbar">
+        <h2>Admin Dashboard</h2>
+        <div class="navbar-right">
+            <span id="adminName">Welcome, Admin</span>
+            <a href="index.html" img src="student.png" alt="Logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+
+    <section class="dashboard-container">
+
+        <table>
+            <tr>
+                <td>
+                    <div class="card">
+                        <h3>Manage Students</h3>
+                        <p>View, add, or remove students from the database.</p>
+                        <a href="manage_student.html" class="card-btn">Manage</a>
+                    </div>
+                </td>
+                <td>
+                    <div class="card">
+                        <h3>Manage Faculty</h3>
+                        <p>View, add, or remove faculty members.</p>
+                        <a href="manage_teacher.html" class="card-btn">Manage</a>
+                    </div>
+
+                </td>
+                <td>
+                    <div class="card">
+                        <h3>Manage Courses</h3>
+                        <p>View, add, or remove courses from the database.</p>
+                        <a href="manage_courses.html" class="card-btn">Manage</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="card">
+                        <h3>Manage Attendance</h3>
+                        <p>Modify attendance of students and teachers.</p>
+                        <a href="manage_attendance.html" class="card-btn">Manage</a>
+                    </div>
+
+                </td>
+                <td>
+                    <div class="card">
+                        <h3>Manage Grades</h3>
+                        <p>Access reports of students according to teachers input.</p>
+                        <a href="manage_grade.html" class="card-btn">Manage</a>
+                    </div>            
+                </td>
+
+                <td>
+                    <div class="card">
+                        <h3>Manage Fees</h3>
+                        <p>View, add, remove fee details regarding students.</p>
+                        <a href="manage_fees.html" class="card-btn">Manage</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        
+
+    </section>
+
+    <footer class = "footer">
+        <p>&copy; College Management System. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |  
+            <a href="contact.html">Contact Us</a>
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="dashboard_styles.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Student Dashboard</h2>
+        <div class="navbar-right">
+            <span id="studentName">Welcome, Janavi</span> <!-- Student Name Displayed -->
+            <a href="index.html" class="logout-btn">
+                <img src="student.png" alt="Student Icon" class="student-icon"> Logout
+            </a>
+        </div>
+    </nav>
+
+    <!-- Student Info -->
+    <section class="student-info">
+        <h3>Student Information</h3>
+        <p><strong>Name:</strong> Janavi Singh</p>
+        <p><strong>Student ID:</strong> 22BCE8501</p>
+        <p><strong>Course:</strong> Computer Science and Engineering</p>
+    </section>
+
+    <!-- Dashboard Cards -->
+    <section class="dashboard-cards">
+        <!-- Attendance Card -->
+        <a href="student_attendance.html" class="card">
+            <img src="attendance.png" alt="Attendance Icon">
+            <h4>Attendance</h4>
+        </a>
+        
+        <!-- Timetable Card -->
+        <a href="student_timetable.html" class="card">
+            <img src="timetable.png" alt="Timetable Icon">
+            <h4>Timetable</h4>
+        </a>
+        
+        <!-- Grades Card -->
+        <a href="student_grade.html" class="card">
+            <img src="grade.png" alt="Grades Icon">
+            <h4>Grades</h4>
+        </a>
+
+        <!-- Fees Card -->
+        <a href="student_fees.html" class="card">
+            <img src="fees.png" alt="Fees Icon">
+            <h4>Fees</h4>
+        </a>
+    </section>
+
+    <footer class = "footer">
+        <p>&copy; College Management System. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |  
+            <a href="contact.html">Contact Us</a>
+        </p>
+    </footer>
+    
+    <script src="dashboard_script.js"></script>
+</body>
+</html>
