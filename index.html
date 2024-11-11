@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mera College</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="College.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Mera College</h2>
+        <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <h1>Welcome to Mera College</h1>
+        <br>
+        <p>A digital platform facilitating students and teachers to access and process academic services at one common platform.</p>
+        <div class="login-portals">
+            <div class="portal" onclick="openLogin('student')">
+                <img src="student.png" alt="Student Icon">
+                <h3>Student</h3>
+                <button>Login</button>
+            </div>
+        
+            <div class="portal" onclick="openLogin('teacher')">
+                <img src="teacher.png" alt="Teacher Icon">
+                <h3>Teacher</h3>
+                <button>Login</button>
+            </div>
+           
+            <div class="portal" onclick="openLogin('admin')">
+                <img src="admin.png" alt="Admin Icon">
+                <h3>Admin</h3>
+                <button>Login</button>
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeLogin()">&times;</span>
+                <h2 id="loginTitle">Login</h2>
+                <form id="login-form">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; College Management System. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |  
+            <a href="contact.html">Contact Us</a>
+        </p>
+    </footer>
+
+    <script src="login.js"></script>
+</body>
+</html>
